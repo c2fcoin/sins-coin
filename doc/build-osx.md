@@ -1,6 +1,6 @@
 Mac OS X Build Instructions and Notes
 ====================================
-This guide will show you how to build safeinsured (headless client) for OSX.
+This guide will show you how to build c2fcoind (headless client) for OSX.
 
 Notes
 -----
@@ -40,14 +40,14 @@ Instructions: Homebrew
 
         brew install autoconf automake berkeley-db4 libtool boost miniupnpc openssl pkg-config protobuf qt5
 
-### Building `safeinsured`
+### Building `c2fcoind`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/safeinsure/sinscore.git
-        cd SafeInsure
+        git clone https://github.com/c2fcoin/c2fcoincore.git
+        cd C2FCoin
 
-2.  Build safeinsured:
+2.  Build c2fcoind:
 
         ./autogen.sh
         ./configure --with-gui=qt5
@@ -57,7 +57,7 @@ Instructions: Homebrew
 
         make check
 
-4.  (Optional) You can also install safeinsured to your path:
+4.  (Optional) You can also install c2fcoind to your path:
 
         make install
 
@@ -69,7 +69,7 @@ Download Qt Creator from http://www.qt.io/download/. Download the "community edi
 1. Make sure you installed everything through homebrew mentioned above
 2. Do a proper ./configure --with-gui=qt5 --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "safeinsure-qt" as project name, enter src/qt as location
+4. Enter "c2fcoin-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."
@@ -79,11 +79,11 @@ Download Qt Creator from http://www.qt.io/download/. Download the "community edi
 
 Creating a release build
 ------------------------
-You can ignore this section if you are building `safeinsured` for your own use.
+You can ignore this section if you are building `c2fcoind` for your own use.
 
-safeinsured/safeinsure-cli binaries are not included in the safeinsure-Qt.app bundle.
+c2fcoind/c2fcoin-cli binaries are not included in the c2fcoin-Qt.app bundle.
 
-If you are building `safeinsured` or `safeinsure-qt` for others, your build machine should be set up
+If you are building `c2fcoind` or `c2fcoin-qt` for others, your build machine should be set up
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:
@@ -92,30 +92,30 @@ All dependencies should be compiled with these flags:
  -arch x86_64
  -isysroot $(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
 
-Once dependencies are compiled, see release-process.md for how the SafeInsure-Qt.app
+Once dependencies are compiled, see release-process.md for how the C2FCoin-Qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Running
 -------
 
-It's now available at `./safeinsured`, provided that you are still in the `src`
+It's now available at `./c2fcoind`, provided that you are still in the `src`
 directory. We have to first create the RPC configuration file, though.
 
-Run `./safeinsured` to get the filename where it should be put, or just try these
+Run `./c2fcoind` to get the filename where it should be put, or just try these
 commands:
 
-    echo -e "rpcuser=safeinsurerpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/SafeInsure/safeinsure.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/SafeInsure/safeinsure.conf"
+    echo -e "rpcuser=safeinsurerpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/C2FCoin/c2fcoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/C2FCoin/c2fcoin.conf"
 
 The next time you run it, it will start downloading the blockchain, but it won't
 output anything while it's doing this. This process may take several hours;
 you can monitor its process by looking at the debug.log file, like this:
 
-    tail -f $HOME/Library/Application\ Support/SafeInsure/debug.log
+    tail -f $HOME/Library/Application\ Support/C2FCoin/debug.log
 
 Other commands:
 -------
 
-    ./safeinsured -daemon # to start the safeinsure daemon.
-    ./safeinsure-cli --help  # for a list of command-line options.
-    ./safeinsure-cli help    # When the daemon is running, to get a list of RPC commands
+    ./c2fcoind -daemon # to start the c2fcoin daemon.
+    ./c2fcoin-cli --help  # for a list of command-line options.
+    ./c2fcoin-cli help    # When the daemon is running, to get a list of RPC commands
