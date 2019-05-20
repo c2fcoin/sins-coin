@@ -5,7 +5,7 @@ UNSIGNED=$1
 SIGNATURE=$2
 ARCH=x86_64
 ROOTDIR=dist
-BUNDLE=${ROOTDIR}/SafeInsure-Qt.app
+BUNDLE=${ROOTDIR}/C2FCoin-Qt.app
 TEMPDIR=signed.temp
 OUTDIR=signed-app
 

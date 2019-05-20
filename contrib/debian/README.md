@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package safeinsured/safeinsure-qt
-for Debian-based Linux systems. If you compile safeinsured/safeinsure-qt yourself, there are some useful files here.
+This directory contains files used to package c2fcoind/c2fcoin-qt
+for Debian-based Linux systems. If you compile c2fcoind/c2fcoin-qt yourself, there are some useful files here.
 
-## safeinsure: URI support ##
+## c2fcoin: URI support ##
 
 
-safeinsure-qt.desktop  (Gnome / Open Desktop)
+c2fcoin-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install safeinsure-qt.desktop
+	sudo desktop-file-install c2fcoin-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
 the .desktop file or copy or symlink your safeinsureqt binary to `/usr/bin`
 and the `../../share/pixmaps/safeinsure128.png` to `/usr/share/pixmaps`
 
-safeinsure-qt.protocol (KDE)
+c2fcoin-qt.protocol (KDE)
 

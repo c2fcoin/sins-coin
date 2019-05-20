@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: safeinsured.service
-Upstart: safeinsured.conf
-OpenRC:  safeinsured.openrc
-         safeinsured.openrcconf
-CentOS:  safeinsured.init
+SystemD: c2fcoind.service
+Upstart: c2fcoind.conf
+OpenRC:  c2fcoind.openrc
+         c2fcoind.openrcconf
+CentOS:  c2fcoind.init
 
 have been made available to assist packagers in creating node packages here.
 
